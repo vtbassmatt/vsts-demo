@@ -13,4 +13,4 @@ for i, x in enumerate("Hi from Red Team"):
 print(f"##vso[task.logdetail id={str(timeline_root_id)};state=Completed;]done!")
   
 repopath = os.environ['BUILD_REPOSITORY_LOCALPATH']
-print(f"##vso[task.uploadfile]{repopath}\vsts-logging.py")
+print(f"##vso[task.uploadfile]{repopath}\\vsts-logging.py")
