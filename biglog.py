@@ -47,8 +47,8 @@ jolly_roger = """
 art from http://www.chris.com/ascii/index.php?art=logos%20and%20insignias/jolly%20roger
 """
 
-min_line_length = os.environ.get("MIN_LINE_LENGTH", 1)
-min_line_count = os.environ.get("MIN_LINE_COUNT", 1)
+min_line_length = int(os.environ.get("MIN_LINE_LENGTH", 1))
+min_line_count = int(os.environ.get("MIN_LINE_COUNT", 1))
 
 line = jolly_roger * max(1, math.ceil(min_line_length / len(jolly_roger)))
 for x in range(max(1, min_line_count)):
