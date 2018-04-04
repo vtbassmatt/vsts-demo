@@ -1,3 +1,6 @@
+import math
+import os
+
 jolly_roger = """
                              ud$$$**$$$$$$$bc.                          
                           u@**"        4$$$$$$$Nu                       
@@ -44,6 +47,11 @@ jolly_roger = """
 art from http://www.chris.com/ascii/index.php?art=logos%20and%20insignias/jolly%20roger
 """
 
-print("##vso[task.logissue type=warning;]Red team is here")
-print(f"##vso[task.logissue type=error;]{jolly_roger}")
+min_line_length = os.environ.get("MIN_LINE_LENGTH", 1)
+min_line_count = os.environ.get("MIN_LINE_COUNT", 1)
+
+line = jolly_roger * max(1, math.ceil(min_line_length / len(jolly_roger)))
+for x in max(1, range(min_line_count)):
+  print(f"##vso[task.logissue type=error;]{line}")
+
 print("##vso[task.complete result=Succeeded;]DONE")
